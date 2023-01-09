@@ -9,6 +9,7 @@ import { Todos } from '../../Todos';
 export class TodoItemComponent {
 
   @Input() todo !: Todos;
+  @Input() i ! : number;
   @Output() todoDelete: EventEmitter<Todos> = new EventEmitter();
   @Output() todoCheckbox: EventEmitter<Todos> = new EventEmitter();
 
@@ -17,7 +18,7 @@ export class TodoItemComponent {
     this.todoDelete.emit(todo);
   }
 
-  OncheboxClick(todo: Todos) {
+  onCheckboxClick(todo: Todos) {
     this.todoCheckbox.emit(todo);
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { flush } from '@angular/core/testing';
 import { Todos } from '../../Todos';
 
 @Component({
@@ -32,5 +33,14 @@ export class TodoComponent {
     console.log(todo);
     this.todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(this.todos));
+  }
+
+
+
+  toggleTodo(todo : Todos){
+    let index =this.todos.indexOf(todo);
+    this.todos[index].active = false;
+   localStorage.setItem("todos", JSON.stringify(this.todos));
+
   }
 }
